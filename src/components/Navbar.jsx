@@ -189,7 +189,7 @@ const Navbar = () => {
                 </a>
 
                 <a
-                  href="/Myresume.pdf"
+                  href="/Mohammed-nawaz-resume.pdf"
                   download="Mohammed-Nawaz-Resume.pdf"
                   className="inline-block py-2 px-3 bg-transparent border border-white/20 rounded text-white text-sm"
                 >
