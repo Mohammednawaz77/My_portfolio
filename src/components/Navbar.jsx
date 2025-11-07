@@ -180,7 +180,7 @@ const Navbar = () => {
 
               <div className="flex gap-3">
                 <a
-                  href="/Myresume.pdf"
+                  href="/Myresume (2).pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 inline-block text-center py-2 px-3 bg-[#915EFF] hover:opacity-90 rounded text-white font-medium"
@@ -189,7 +189,7 @@ const Navbar = () => {
                 </a>
 
                 <a
-                  href="/Mohammed-nawaz-resume.pdf"
+                  href="/Myresume (2).pdf"
                   download="Mohammed-Nawaz-Resume.pdf"
                   className="inline-block py-2 px-3 bg-transparent border border-white/20 rounded text-white text-sm"
                 >
