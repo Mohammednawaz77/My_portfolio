@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import React from "react";
-import profile from "../assets/mohammed-nawaz.jpg"; // your photo
+import profile from "../assets/Mohammed-nawaz.jpg"; // your photo
 import { styles } from "../styles"; // keep existing style import
 
 const Hero = () => {
