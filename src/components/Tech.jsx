@@ -1,18 +1,15 @@
 // src/components/Tech.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { SectionWrapper } from "../hoc";
 import { technologies, professionalSkills } from "../constants";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Small helper to safely load an asset from ../assets; returns null if missing
 const resolveAsset = (fileName) => {
   if (!fileName) return null;
   try {
-    // Vite supports dynamic imports through new URL or require; use new URL for Vite compatibility
     return new URL(`../assets/${fileName}`, import.meta.url).href;
   } catch (e) {
     return null;
@@ -25,9 +22,9 @@ const SkillItem = ({ icon, name }) => {
   return (
     <div className="flex flex-col items-center gap-3">
       {src ? (
-        <img src={src} alt={name} className="w-16 h-16 object-contain" />
+        <img src={src} alt={name} className="w-14 h-14 object-contain" />
       ) : (
-        <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white/5 text-white/90 text-sm font-semibold">
+        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/10 text-white font-semibold">
           {name.slice(0, 2).toUpperCase()}
         </div>
       )}
@@ -39,75 +36,62 @@ const SkillItem = ({ icon, name }) => {
 const Tech = () => {
   useEffect(() => {
     gsap.fromTo(
-      ".tech-icon",
+      ".skill-col",
       { opacity: 0, y: 40 },
       {
         opacity: 1,
         y: 0,
-        duration: 1.2,
-        stagger: 0.08,
+        duration: 1,
+        stagger: 0.2,
         scrollTrigger: {
-          trigger: ".tech-icons-wrapper",
+          trigger: ".skills-wrapper",
           start: "top 85%",
-          end: "bottom 60%",
-          scrub: false,
-        },
-      }
-    );
-
-    gsap.fromTo(
-      ".prof-icon",
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        stagger: 0.08,
-        scrollTrigger: {
-          trigger: ".prof-icons-wrapper",
-          start: "top 85%",
-          end: "bottom 60%",
-          scrub: false,
+          once: true,
         },
       }
     );
   }, []);
 
   return (
-    <section id="skills" className="py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-8">
-          <p className="text-secondary">What I can do</p>
-          <h2 className="text-white text-3xl font-bold">Skills</h2>
+    <section id="skills" className="py-16">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+
+        {/* === Updated Futuristic Heading (Style 3) === */}
+        <div className="text-center mb-12">
+          <h2 className="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-[0_0_10px_rgba(145,94,255,0.35)]">
+            Skills
+          </h2>
+          <p className="text-white/60 text-sm mt-2">
+            Innovating through clean code, creativity & craftsmanship
+          </p>
+          <div className="w-28 h-[2px] bg-gradient-to-r from-purple-500/60 via-[#915EFF] to-purple-500/60 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        {/* Technical Skills */}
-        <div className="mb-8">
-          <h3 className="text-white font-semibold mb-4">Technical Skills</h3>
+        <div className="skills-wrapper grid grid-cols-1 md:grid-cols-2 gap-10 relative">
 
-          <div className="tech-icons-wrapper grid grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center">
-            {technologies.map((tech) => (
-              <div
-                key={tech.id || tech.name}
-                className="tech-icon flex flex-col items-center"
-              >
-                <SkillItem icon={tech.icon} name={tech.name} />
-              </div>
-            ))}
+          {/* Vertical divider line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20"></div>
+
+          {/* Technical Skills column */}
+          <div className="skill-col flex flex-col items-center gap-6">
+            <h3 className="text-white text-xl font-semibold">Technical Skills</h3>
+            <div className="grid grid-cols-3 gap-6">
+              {technologies.map((tech) => (
+                <SkillItem key={tech.id || tech.name} icon={tech.icon} name={tech.name} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Professional Skills */}
-        <div>
-          <h3 className="text-white font-semibold mb-4">Professional Skills</h3>
-
-          <div className="prof-icons-wrapper grid grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center">
-            {professionalSkills.map((ps) => (
-              <div key={ps.id || ps.name} className="prof-icon flex flex-col items-center">
-                <SkillItem icon={ps.icon} name={ps.name} />
-              </div>
-            ))}
+          {/* Professional Skills column */}
+          <div className="skill-col flex flex-col items-center gap-6">
+            <h3 className="text-white text-xl font-semibold">Professional Skills</h3>
+            <div className="grid grid-cols-3 gap-6">
+              {professionalSkills.map((ps) => (
+                <SkillItem key={ps.id || ps.name} icon={ps.icon} name={ps.name} />
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </section>
