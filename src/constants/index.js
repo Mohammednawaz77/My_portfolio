@@ -69,47 +69,42 @@ export const experiences = [
 ];
 
 // PROJECTS
+// PROJECTS
 export const projects = [
   {
     name: "NexCRM",
     description:
-      "A responsive CRM dashboard to manage leads, clients, follow-ups, task stages, and business workflow with intuitive UI & analytics.",
+      "A responsive CRM dashboard to manage leads, clients, follow-ups and task stages workflow with intuitive UI & analytics.",
     tags: [
-      { name: "React", color: "blue-text-gradient" },
-      { name: "Node.js", color: "green-text-gradient" },
-      { name: "Express", color: "pink-text-gradient" },
-      { name: "MongoDB", color: "yellow-text-gradient" },
-      { name: "TailwindCSS", color: "purple-text-gradient" }
+      ["react", "nodejs", "express"],      // row 1
+      ["mongodb", "tailwind"]              // row 2
     ],
     image: crmLogo,
-    source_code_link: "https://github.com/Mohammednawaz77/NexCRM",   // add GitHub link
-    live_link: "https://nexcrm7.onrender.com/"           // add deployment link
+    source_code_link: "https://github.com/Mohammednawaz77/NexCRM",
+    live_link: "https://nexcrm7.onrender.com/"
   },
   {
     name: "Shopping Website",
     description:
       "A Flipkart-inspired e-commerce UI with product grid, categories, filtering and responsive layout.",
     tags: [
-      { name: "HTML", color: "blue-text-gradient" },
-      { name: "CSS", color: "green-text-gradient" },
-      { name: "JavaScript", color: "yellow-text-gradient" }
+      ["html", "css", "javascript"],        // row 1
+      ["", "", ""]                          // row 2 (empty placeholders to maintain equal height)
     ],
     image: bbcLogo,
-    source_code_link: "https://github.com/Mohammednawaz77/CODE-KNIGHTS-WEB-007",  // add GitHub link
-    live_link: "https://incandescent-souffle-738ba0.netlify.app/"          // add deployment link
+    source_code_link: "https://github.com/Mohammednawaz77/CODE-KNIGHTS-WEB-007",
+    live_link: "https://incandescent-souffle-738ba0.netlify.app/"
   },
   {
-  name: "eKatha Generator",
-  description:
-    "A BBMP-inspired application that converts voice to text and generates grievance letters for citizens with a simplified automated workflow.",
-  tags: [
-    { name: "HTML", color: "blue-text-gradient" },
-    { name: "CSS", color: "green-text-gradient" },
-    { name: "JavaScript", color: "yellow-text-gradient" }
-  ],
-  image: qmlLogo, // make sure this image exists or replace it
-  source_code_link: "https://github.com/Mohammednawaz77/ekathageneration",
-  live_link: "https://ekathageneration.onrender.com/"
-}
-
+    name: "eKatha Generator",
+    description:
+      "A BBMP-inspired application that converts voice to text and generates grievance letters with a simple automated workflow.",
+    tags: [
+      ["html", "css", "javascript"],        // row 1
+      ["react", "", ""]                     // row 2 (aligned because react goes here)
+    ],
+    image: qmlLogo,
+    source_code_link: "https://github.com/Mohammednawaz77/ekathageneration",
+    live_link: "https://ekathageneration.onrender.com/"
+  }
 ];

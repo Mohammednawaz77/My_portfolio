@@ -3,6 +3,23 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from "react-icons/fa";
 
 const About = () => {
+
+  // -------- FIX: Resume Download Handler --------
+  const handleResumeDownload = () => {
+    const filePath = "/Mohammed-Nawaz-Resume.pdf"; // File must be inside /public
+
+    // Open in new tab
+    window.open(filePath, "_blank", "noopener,noreferrer");
+
+    // Force browser download
+    const link = document.createElement("a");
+    link.href = filePath;
+    link.setAttribute("download", "Mohammed-Nawaz-Resume.pdf");
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
   return (
     <section
       id="about"
@@ -10,12 +27,10 @@ const About = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Heading */}
         <h2 className="text-white text-3xl md:text-4xl font-bold mb-6">
           About Me
         </h2>
 
-        {/* First paragraph */}
         <p className="text-base md:text-lg leading-relaxed text-white/80 max-w-3xl">
           I am a full-stack web developer with a strong foundation in both
           front-end and back-end technologies. I am adept at building complete
@@ -26,7 +41,6 @@ const About = () => {
           deliver exceptional user experiences from start to finish.
         </p>
 
-        {/* Second paragraph */}
         <p className="mt-6 text-base md:text-lg leading-relaxed text-white/70 max-w-3xl">
           I specialize in building full-stack applications using modern tools 
           and best practices — check the{" "}
@@ -34,7 +48,6 @@ const About = () => {
           for a quick overview of my technical and professional abilities.
         </p>
 
-        {/* Social Buttons Section */}
         <div className="mt-10 flex flex-wrap gap-4">
 
           {/* GitHub */}
@@ -57,17 +70,15 @@ const About = () => {
             <FaLinkedin /> LinkedIn
           </a>
 
-          {/* Resume - Opens in new tab */}
-          <a
-            href="/Mohammed-Nawaz-Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Resume — FIXED */}
+          <button
+            onClick={handleResumeDownload}
             className="flex items-center gap-2 px-5 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition"
           >
             <FaFileAlt /> Resume
-          </a>
+          </button>
 
-          {/* Email - Gmail Compose */}
+          {/* Email */}
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=mohammednawaz.dev@gmail.com&su=Let's+Connect&body=Hi+Nawaz,"
             target="_blank"
